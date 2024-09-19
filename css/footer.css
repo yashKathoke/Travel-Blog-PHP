@@ -1,0 +1,23 @@
+.footer {
+    background-color: #343a40;
+    color: #ffffff;
+    margin-top: 2rem;
+    top: 3rem;
+}
+
+.footer a {
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #33f140;
+}
+
+.social-media a {
+    font-size: 1.5rem;
+}
+
+.social-media a:hover {
+    color: #33f140;
+}
