@@ -1,0 +1,11 @@
+.fixed-button-container {
+    position: fixed;
+    top: 20px;  /* Adjust the distance from the top */
+    right: 20px;  /* Adjust the distance from the right */
+    z-index: 1000;  /* Ensure it stays above other elements */
+}
+
+.fixed-button-container .btn {
+    padding: 10px 15px;  /* Add padding for a better look */
+    font-size: 16px;  /* Adjust font size */
+}

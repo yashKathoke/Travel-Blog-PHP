@@ -1,31 +1,17 @@
 <?php
-// File where blog posts are stored
-$jsonFile = '../blogs.json';
-$success = false;
+// Database connection
+$host = 'localhost';
+$dbname = 'blog_posts'; // your database name
+$user = 'root'; // your database user
+$password = ''; // your database password
 
+$conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
 
+// Fetch all posts from the MySQL database
+$query = "SELECT * FROM posts ORDER BY date DESC";
+$stmt = $conn->prepare($query);
+$stmt->execute();
+$posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-function getPosts(){
-    $jsonFile = '../blogs.json';
-    $data = json_decode(file_get_contents($jsonFile), true);
-    return $data;
-}
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
-   $data = getPosts();
-   echo json_encode($data);
-   exit;
-}
-
-
-?>
-
-<!-- Redirect back to the main page after submission -->
-<script>
-    if ($success) {
-        
-        setTimeout(function(){
-            window.location.href = '/assignment'; // The main page that displays all posts
-        }, 200);
-    }
-    
-</script>
+// Return posts as JSON
+echo json_encode($posts);

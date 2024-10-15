@@ -1,3 +1,9 @@
+<?php
+
+session_start(); // Start the session to access user session variables
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,10 +18,17 @@
     />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="./css/nav.css">
+    <link rel="stylesheet" href="./css/logButton.css">
     <link rel="stylesheet" href="./css/footer.css">
   </head>
   <body>
-
+  <div class="fixed-button-container">
+        <?php if (isset($_SESSION['user_id'])): ?>
+            <a href="/assignment/php/logout.php" class="btn btn-danger">Logout</a>
+        <?php else: ?>
+            <a href="/assignment/pages/login.php" class="btn btn-primary">Login</a>
+        <?php endif; ?>
+    </div>
     <div class="button-container">
         <a href="/assignment">
         <button class="button">
